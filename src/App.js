@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+
+import NavFooter from './NavFooter.js';
 import Button from 'react-bootstrap/Button';
 
 import './App.css';
@@ -8,8 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+
+
         <header className="App-header">
           <h1> The U </h1>
+
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -38,7 +44,9 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <NavFooter />
       </div>
+
     );
   }
 }
