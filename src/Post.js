@@ -19,6 +19,10 @@ const cardTitleStyle = {
   fontSize: "30px",
 };
 
+const cardTextStyle = {
+  fontSize: "14px",
+};
+
 
 class Post extends React.Component {
   constructor(props) {
@@ -60,7 +64,9 @@ Thank you in advance for your input!
           <Card.Body>
             <Card.Title style={cardTitleStyle}>{title}</Card.Title>
 
-            University of Washington | vavacoda
+            <Card.Text style={cardTextStyle}>
+              University of Washington | vavacoda
+            </Card.Text>
 
             <NavDropdown.Divider />
             <Card.Text>
