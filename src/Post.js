@@ -3,8 +3,15 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const postStyle = {
   paddingTop: "30px",
@@ -21,6 +28,21 @@ const cardTitleStyle = {
 
 const cardTextStyle = {
   fontSize: "14px",
+};
+
+const cardBodyStyle = {
+  paddingTop: "10px",
+  paddingBottom: "4px",
+};
+
+const iconStyle = {
+  color: "#1C2F70",
+  fontSize: "20px",
+  paddingRight: "10px",
+};
+
+const iconContainerStyles = {
+  paddingTop: "10px",
 };
 
 
@@ -56,29 +78,53 @@ Thank you in advance for your input!
     ;
     return (
       <div style={postStyle}>
-
         <Container>
-      
-        <Row>
-        <Card bsStyle="box-shadow" style={cardStyle}>
-          <Card.Body>
-            <Card.Title style={cardTitleStyle}>{title}</Card.Title>
+          <Row>
+            <Card bsStyle="box-shadow" style={cardStyle}>
+              <Card.Body>
+                <Card.Title style={cardTitleStyle}>{title}</Card.Title>
 
-            <Card.Text style={cardTextStyle}>
-              University of Washington | vavacoda
-            </Card.Text>
+                <Card.Text style={cardTextStyle}>
+                  University of Washington | vavacoda
+                </Card.Text>
 
-            <NavDropdown.Divider />
-            <Card.Text>
-              {text}
-            </Card.Text>
-          </Card.Body>
-        </Card>
+                <NavDropdown.Divider />
 
-      </Row>
+                <Card.Text style={cardBodyStyle}>
+                  {text}
+                </Card.Text>
+
+                <NavDropdown.Divider />
+
+                <div style={iconContainerStyles}>
+                <Container>
+                  <Row>
+                    <Col>
+                      <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
+                      21 likes
+                    </Col>
+
+                    <Col>
+                      <FontAwesomeIcon style={iconStyle} icon={faComment} />
+                      10 comments
+                    </Col>
+
+                    <Col>
+                      <FontAwesomeIcon style={iconStyle} icon={faEye} />
+                      1012 Views
+                    </Col>
+                  </Row>
+                </Container>
+              </div>
 
 
-      </Container>
+              </Card.Body>
+            </Card>
+
+          </Row>
+
+
+        </Container>
 
       </div>
     );
