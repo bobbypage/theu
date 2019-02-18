@@ -25,7 +25,7 @@ class Forum extends React.Component {
       },
       {
         name: "Rejected from CS, help!!",
-        text: "yo, help a brother out,
+        text: "yo, help a brother out",
       },
       {
         name: "CSE143 vs 143x",
