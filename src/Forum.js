@@ -3,6 +3,10 @@ import React from 'react';
 import ForumCard from './ForumCard.js';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import { Redirect } from 'react-router-dom'
+
+
 
 
 const forumStyle = {
@@ -45,19 +49,38 @@ class Forum extends React.Component {
       },
     ]
     this.posts = posts;
+	
+	this.state = {
+		redirectToPost: false
+	}
 
   }
+
+  renderRedirect = (post, e ) => {
+	console.log(post);
+	this.setState({ redirectToPost: true, postNameClicked: post.name });
+  }
+
   render() {
-    return (
-      <div style={forumStyle}>
-<Container>
-  {this.posts.map(post =>
-        <Row>
-          <ForumCard title={post.name} text={post.text} />
-      </Row>
-        )}
-</Container>
-      </div>
+    const { redirectToPost, postNameClicked } = this.state;
+
+	if (redirectToPost) {
+	  return <Redirect to={{ 
+		pathname: "/post", 
+		state: { title: postNameClicked } 
+	  }} />;
+	}
+
+	return (
+	  <div style={forumStyle}>
+	  <Container>
+		{this.posts.map(post =>
+		  <Row onClick={(e) => this.renderRedirect(post, e) }>
+			<ForumCard title={post.name} text={post.text} />
+		  </Row>
+		)}
+	  </Container>
+	</div>
     );
   }
 }

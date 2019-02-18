@@ -76,13 +76,14 @@ Thank you in advance for your input!
     
     
     ;
+	  const titleClicked = this.props.location.state.title;
     return (
       <div style={postStyle}>
         <Container>
           <Row>
             <Card bsStyle="box-shadow" style={cardStyle}>
               <Card.Body>
-                <Card.Title style={cardTitleStyle}>{title}</Card.Title>
+                <Card.Title style={cardTitleStyle}>{titleClicked}</Card.Title>
 
                 <Card.Text style={cardTextStyle}>
                   University of Washington | vavacoda
