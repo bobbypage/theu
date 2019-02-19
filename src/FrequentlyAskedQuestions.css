@@ -1,0 +1,14 @@
+#header {
+    padding: 2%;
+    text-align: center;
+}
+
+.question {
+    padding-left: 2%;
+    padding-top:2%;
+}
+
+
+.answer {
+    padding-left: 3%;
+}

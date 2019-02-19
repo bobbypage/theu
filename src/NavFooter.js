@@ -14,16 +14,12 @@ import './NavFooter.css';
 class NavFooter extends Component {
   render() {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <ul className="navbar-nav mr-auto">
-              <li><Link to={'/'} className="nav-link"> Home </Link></li>
-              <li><Link to={'/AboutUs'} className="nav-link">About Us</Link></li>
-              <li><Link to={'/FAQ'} className="nav-link">FAQ</Link></li>
-              <li><Link to={'/CodeOfConduct'} className="nav-link">Code of Conduct</Link></li>
-              <li><Link to={'/ContactUs'} className="nav-link">Contact Us</Link></li>
-            </ul>
-            </nav>
+        <div id="footer">
+          <div class="item"><Link to={'/'} className="nav-link link-text"> Home </Link></div>
+          <div class="item"><Link to={'/AboutUs'} className="nav-link link-text">About Us</Link></div>
+          <div class="item"><Link to={'/FAQ'} className="nav-link link-text">FAQ</Link></div>
+          <div class="item"><Link to={'/CodeOfConduct'} className="nav-link link-text">Code of Conduct</Link></div>
+          <div class="item"><Link to={'/ContactUs'} className="nav-link link-text"><div>Contact Us</div></Link></div>
         </div>
     );
   }

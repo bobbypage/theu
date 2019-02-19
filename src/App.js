@@ -18,17 +18,20 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-              <div>
-                <Switch>
-                  <Route exact path="/" component={HomePage} />
-                  <Route path='/AboutUs' component={AboutUs} />
-                  <Route path='/FAQ' component={FrequentlyAskedQuestions} />
-                  <Route path='/CodeOfConduct' component={CodeOfConduct} />
-                  <Route path='/ContactUs' component={ContactUs} />
-                  <Route path='/Forum' component={Forum} />
-                  <Route path='/Post' component={Post} />
-                </Switch>
-                <NavFooter />
+              <div id="container">
+                <div id="body">
+                    <Switch>
+                      <Route exact path="/" component={HomePage} />
+                      <Route path='/AboutUs' component={AboutUs} />
+                      <Route path='/FAQ' component={FrequentlyAskedQuestions} />
+                      <Route path='/CodeOfConduct' component={CodeOfConduct} />
+                      <Route path='/ContactUs' component={ContactUs} />
+                      <Route path='/Forum' component={Forum} />
+                    </Switch>
+                </div>
+                <div>
+                    <NavFooter/>
+                </div>
               </div>
             </BrowserRouter>
         );
