@@ -10,7 +10,7 @@ import { Redirect } from 'react-router-dom'
 
 
 const forumStyle = {
-  backgroundColor: "#6c757d"
+  backgroundColor: "#adb5bd"
 };
 
 class Forum extends React.Component {
@@ -42,6 +42,22 @@ class Forum extends React.Component {
       {
         name: "Whats the best major for going to med school?",
         text: "gotta be a doctor due",
+      },
+      {
+        name: "need an internship..... help!!!",
+        text: "i gotta make those $$$$$",
+      },
+      {
+        name: "need an internship..... help!!!",
+        text: "i gotta make those $$$$$",
+      },
+      {
+        name: "need an internship..... help!!!",
+        text: "i gotta make those $$$$$",
+      },
+      {
+        name: "need an internship..... help!!!",
+        text: "i gotta make those $$$$$",
       },
       {
         name: "need an internship..... help!!!",

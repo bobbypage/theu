@@ -27,6 +27,7 @@ class App extends Component {
                       <Route path='/CodeOfConduct' component={CodeOfConduct} />
                       <Route path='/ContactUs' component={ContactUs} />
                       <Route path='/Forum' component={Forum} />
+                      <Route path='/Post' component={Post} />
                     </Switch>
                 </div>
                 <div>

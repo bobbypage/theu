@@ -12,7 +12,7 @@ const cardStyle = {
 };
 
 const forumDivStyle = {
-  paddingBottom: "30px",
+  paddingBottom: "10px",
   height:"100%",
   width:"100%",
 };

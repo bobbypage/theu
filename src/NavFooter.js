@@ -14,7 +14,7 @@ import './NavFooter.css';
 class NavFooter extends Component {
   render() {
     return (
-        <div id="footer">
+        <div id="footer" class="fixed-bottom">
           <div class="item"><Link to={'/'} className="nav-link link-text"> Home </Link></div>
           <div class="item"><Link to={'/AboutUs'} className="nav-link link-text">About Us</Link></div>
           <div class="item"><Link to={'/FAQ'} className="nav-link link-text">FAQ</Link></div>
