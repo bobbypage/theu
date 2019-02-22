@@ -59,45 +59,47 @@ class Post extends React.Component {
       <div style={postStyle}>
         <Container>
           <Row>
-            <Card bsStyle="box-shadow" style={cardStyle}>
-              <Card.Body>
-                <Card.Title style={cardTitleStyle}>{post.title}</Card.Title>
+            <Col>
+              <Card bsStyle="box-shadow" style={cardStyle}>
+                <Card.Body>
+                  <Card.Title style={cardTitleStyle}>{post.title}</Card.Title>
 
-                <Card.Text style={cardTextStyle}>
-                  University of Washington | vavacoda
-                </Card.Text>
+                  <Card.Text style={cardTextStyle}>
+                    University of Washington | vavacoda
+                  </Card.Text>
 
-                <NavDropdown.Divider />
+                  <NavDropdown.Divider />
 
-                <Card.Text style={cardBodyStyle}>
-                  {post.text}
-                </Card.Text>
+                  <Card.Text style={cardBodyStyle}>
+                    {post.text}
+                  </Card.Text>
 
-                <NavDropdown.Divider />
+                  <NavDropdown.Divider />
 
-                <div style={iconContainerStyles}>
-                <Container>
-                  <Row>
-                    <Col>
-                      <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
-                      21 likes
-                    </Col>
+                  <div style={iconContainerStyles}>
+                    <Container>
+                      <Row>
+                        <Col>
+                          <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
+                          21 likes
+                        </Col>
 
-                    <Col>
-                      <FontAwesomeIcon style={iconStyle} icon={faComment} />
-                      10 comments
-                    </Col>
+                        <Col>
+                          <FontAwesomeIcon style={iconStyle} icon={faComment} />
+                          10 comments
+                        </Col>
 
-                    <Col>
-                      <FontAwesomeIcon style={iconStyle} icon={faEye} />
-                      1012 Views
-                    </Col>
+                        <Col>
+                          <FontAwesomeIcon style={iconStyle} icon={faEye} />
+                          1012 Views
+                        </Col>
 
-                  </Row>
-                </Container>
-              </div>
-              </Card.Body>
-            </Card>
+                      </Row>
+                    </Container>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </div>

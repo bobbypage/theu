@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Button, FormLabel, FormGroup, FormControl } from "react-bootstrap";
+import NetworkHelper from './NetworkHelper.js';
 import "./Login.css";
 
 // add this to top of App.js :
@@ -16,9 +17,13 @@ export default class Login extends Component {
       password: ""
       // confirmPassword: ""
     };
+    this.loginHandler = this.loginHandler.bind(this)
+    this.signUpHandler = this.signUpHandler.bind(this)
   }
 
   validateForm() {
+    console.log(this.state.email);
+    console.log("VALIDATE FORM CLICKED");
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
@@ -32,6 +37,21 @@ export default class Login extends Component {
     event.preventDefault();
   }
 
+  loginHandler() {
+    console.log("LOGIN HANDLER");
+    console.log(this.state);
+    NetworkHelper.loginUser(this.state.email, this.state.password).then(res => {
+        console.log("Access token", res.data.access_token);
+    });
+  }
+
+  signUpHandler() {
+    console.log("SIGNUP HANDLER");
+    NetworkHelper.createUser(this.state.username, this.state.email, this.state.password).then(res => {
+      console.log(res);
+    });
+  }
+
   render() {
     return (
 
@@ -41,7 +61,7 @@ export default class Login extends Component {
         <form onSubmit={this.handleSubmit}>
 
           <FormGroup controlId="email" bsSize="large">
-            <h1>Email</h1>
+            <FormLabel>Email</FormLabel>
             <FormControl
               autoFocus
               type="email"
@@ -53,7 +73,7 @@ export default class Login extends Component {
                     <p>Or</p>
 
           <FormGroup controlId="username" bsSize="large">
-            <h1>User Name</h1>
+            <FormLabel>Username</FormLabel>
             <FormControl
               autoFocus
               type="username"
@@ -63,7 +83,7 @@ export default class Login extends Component {
           </FormGroup>
 
           <FormGroup controlId="password" bsSize="large">
-            <h1>Password</h1>
+            <FormLabel>Password</FormLabel>
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
@@ -71,23 +91,24 @@ export default class Login extends Component {
             />
             </FormGroup>
 
-
           <Button
             block
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
+            onClick={this.loginHandler}
           >
             Login
           </Button>
 
-          <p> Not a member of The U yet? Sign up for free </p>
+          Not a member of The U yet? Sign up for free
 
           <Button
             block
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
+            onClick={this.signUpHandler}
           >
             Sign up
           </Button>

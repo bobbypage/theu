@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './App.css';
 import NavFooter from './NavFooter';
 import AboutUs from './AboutUs';
 import FrequentlyAskedQuestions from './FrequentlyAskedQuestions';
@@ -22,32 +22,19 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-
-
-              <div id="container">
-
-              <Container>
-                 <Row>
-                     <Login/>
-                 </Row>
-              </Container>
-
-                <div id="body">
-                    <Switch>
-                      <Route exact path="/" component={HomePage} />
-                      <Route path='/AboutUs' component={AboutUs} />
-                      <Route path='/FAQ' component={FrequentlyAskedQuestions} />
-                      <Route path='/CodeOfConduct' component={CodeOfConduct} />
-                      <Route path='/ContactUs' component={ContactUs} />
-                      <Route path='/Forum' component={Forum} />
-                      <Route path='/Post' component={Post} />
-                      <Route path='/NewPost' component={NewPost} />
-                    </Switch>
-                </div>
-                <div>
+                <div id="container">
+                        <Switch>
+                            <Route exact path="/" component={HomePage} />
+                            <Route path='/AboutUs' component={AboutUs} />
+                            <Route path='/FAQ' component={FrequentlyAskedQuestions} />
+                            <Route path='/CodeOfConduct' component={CodeOfConduct} />
+                            <Route path='/ContactUs' component={ContactUs} />
+                            <Route path='/Forum' component={Forum} />
+                            <Route path='/Post' component={Post} />
+                            <Route path='/NewPost' component={NewPost} />
+                        </Switch>
                     <NavFooter/>
                 </div>
-              </div>
             </BrowserRouter>
         );
     }
