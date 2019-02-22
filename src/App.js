@@ -10,6 +10,7 @@ import ContactUs from './ContactUs';
 import HomePage from './HomePage';
 import Forum from './Forum';
 import Post from './Post';
+import NewPost from './NewPost';
 
 // You can choose your kind of history here (e.g. browserHistory)
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
@@ -28,6 +29,7 @@ class App extends Component {
                       <Route path='/ContactUs' component={ContactUs} />
                       <Route path='/Forum' component={Forum} />
                       <Route path='/Post' component={Post} />
+                      <Route path='/NewPost' component={NewPost} />
                     </Switch>
                 </div>
                 <div>
