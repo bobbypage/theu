@@ -21,7 +21,15 @@ class NetworkHelper {
     return axios.post(NetworkHelper.baseUrl + "/user", {
       'username': username,
       'email': email,
-      'password': password,
+      'hashed_password': password,
+    });
+  }
+
+  // Returns JWT token
+  static loginUser(email, password) {
+    return axios.post(NetworkHelper.baseUrl + "/user/login", {
+      'email': email,
+      'password': password
     });
   }
 }
