@@ -69,7 +69,7 @@ class Forum extends React.Component {
     const { redirectToPost, postNameClicked, posts, loaded, clickedPost } = this.state;
 
     if (redirectToPost) {
-      return <Redirect to={{ 
+      return <Redirect push to={{ 
         pathname: "/post", 
         state: { post: clickedPost } 
       }} />;
