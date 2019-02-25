@@ -18,7 +18,7 @@ class Login extends Component {
 
   validateForm() {
     console.log("VALIDATE FORM CLICKED");
-    return this.state.username.length > 0 && this.state.password.length >= 8;
+    return this.state.username.length > 0 && this.state.password.length >= 1;
   }
 
   handleChange = event => {

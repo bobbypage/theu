@@ -41,8 +41,8 @@ class NetworkHelper {
     let request = {
         'password': password
     }
-    if (email.includes("@")) {
-        request["email"] = email;
+    if (username.includes("@")) {
+        request["email"] = username;
     } else {
         request["username"] = username;
     }
