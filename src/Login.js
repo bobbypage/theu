@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, FormLabel, FormGroup, FormControl } from "react-bootstrap";
 import NetworkHelper from './NetworkHelper.js';
 import "./Login.css";
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Login extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      shouldRedirect: false,
     };
     this.loginHandler = this.loginHandler.bind(this)
   }
@@ -36,12 +38,35 @@ class Login extends Component {
   loginHandler() {
     console.log("LOGIN HANDLER");
     console.log(this.state);
-    NetworkHelper.loginUser(this.state.username, this.state.password).then(res => {
-        console.log("Access token", res.data.access_token);
+
+    var email = null;
+    var username = null;
+
+    if (this.state.email !== "") {
+      email = this.state.email;
+    }
+    if (this.state.username !== "") {
+      username = this.state.username;
+    }
+
+    NetworkHelper.loginUser(email, username, this.state.password).then(res => {
+      let token = res.data.access_token;
+      NetworkHelper.saveToken(token);
+      this.setState({shouldRedirect: true});
+    }).catch(err => {
+      alert("Could not login");
     });
   }
 
   render() {
+    const {shouldRedirect} = this.state;
+
+    if (shouldRedirect) {
+      return <Redirect push to={{ 
+        pathname: "/forum", 
+      }} />;
+    }
+
     return (
 
     <div className="Login">

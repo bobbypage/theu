@@ -51,10 +51,38 @@ const iconContainerStyles = {
 class Post extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      loading: true,
+      post_title: null,
+      post_text: null,
+      username: null,
+    };
+  }
+
+  componentDidMount() {
+    console.log("MOUNT POST");
+    console.log(this.props.location.state.post_id);
+
+    NetworkHelper.getPost(this.props.location.state.post_id).then(res => {
+      this.setState({
+        loading: false,
+        post_title: res.data.post_title,
+        post_text: res.data.post_text,
+        username: res.data.username,
+      });
+    });
   }
 
   render() {
-    const post = this.props.location.state.post;
+    const {loading, post_title, post_text, username} = this.state;
+
+    if (loading) {
+      return (
+        <h1> Loading ... </h1>
+      );
+    }
+    
     return (
       <div style={postStyle}>
         <Container>
@@ -62,16 +90,16 @@ class Post extends React.Component {
             <Col>
               <Card bsStyle="box-shadow" style={cardStyle}>
                 <Card.Body>
-                  <Card.Title style={cardTitleStyle}>{post.title}</Card.Title>
+                  <Card.Title style={cardTitleStyle}>{post_title}</Card.Title>
 
                   <Card.Text style={cardTextStyle}>
-                    University of Washington | vavacoda
+                    University of Washington | {username}
                   </Card.Text>
 
                   <NavDropdown.Divider />
 
                   <Card.Text style={cardBodyStyle}>
-                    {post.text}
+                    {post_text}
                   </Card.Text>
 
                   <NavDropdown.Divider />

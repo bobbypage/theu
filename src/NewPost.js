@@ -17,7 +17,7 @@ class NewPost extends React.Component {
   }
 
   saveHandler() {
-    NetworkHelper.createPost(this.state.title, this.state.text, this.state, /* User id */1).then(res => { 
+    NetworkHelper.createPost(this.state.title, this.state.text, this.state).then(res => { 
       this.props.savedHandler();
     });
   }

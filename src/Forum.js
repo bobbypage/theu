@@ -51,7 +51,7 @@ class Forum extends React.Component {
 
   renderRedirect = (post, e ) => {
     console.log(post);
-    this.setState({ redirectToPost: true, clickedPost: post});
+    this.setState({ redirectToPost: true, post_id: post.id});
   }
 
   componentDidMount() {
@@ -66,12 +66,12 @@ class Forum extends React.Component {
   }
 
   render() {
-    const { redirectToPost, postNameClicked, posts, loaded, clickedPost } = this.state;
+    const { redirectToPost, postNameClicked, posts, loaded, post_id } = this.state;
 
     if (redirectToPost) {
       return <Redirect push to={{ 
         pathname: "/post", 
-        state: { post: clickedPost } 
+        state: { post_id: post_id } 
       }} />;
     }
 

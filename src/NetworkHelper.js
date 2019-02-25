@@ -9,12 +9,23 @@ class NetworkHelper {
     return axios.get(NetworkHelper.baseUrl + "/post");
   }
 
-  static createPost(title, text, user_id) {
+  static getPost(post_id) {
+    return axios.get(NetworkHelper.baseUrl + "/post/" + post_id);
+  }
+
+  static createPost(title, text) {
+    let requestHeaders = {
+        'Authorization': 'Bearer ' + NetworkHelper.getToken()
+    };
+
     return axios.post(NetworkHelper.baseUrl + "/post", {
       'title': title,
       'text': text,
-      'user_id': user_id,
-    });
+    }, 
+      {
+        headers: requestHeaders
+      }
+    );
   }
 
   static createUser(email, username, password) {
@@ -27,7 +38,6 @@ class NetworkHelper {
 
   // Returns JWT token
   static loginUser(email, username, password) {
-    console.log("Network Helper -", email, password);
     return axios.post(NetworkHelper.baseUrl + "/user/login", {
       'email': email,
       'username': username,
@@ -39,7 +49,7 @@ class NetworkHelper {
     localStorage.setItem('jwt', token);
   }
 
-  static getToken(token) {
+  static getToken() {
     return localStorage.getItem('jwt');
   }
 }
