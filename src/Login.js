@@ -17,12 +17,8 @@ class Login extends Component {
   }
 
   validateForm() {
-    if (this.state.username !== "" && this.state.username.endsWith(".edu")) {
-
-    }
-    console.log(this.state.username);
     console.log("VALIDATE FORM CLICKED");
-    return this.state.username.length > 0 && this.state.password.length > 0;
+    return this.state.username.length > 0 && this.state.password.length >= 8;
   }
 
   handleChange = event => {
@@ -36,9 +32,6 @@ class Login extends Component {
   }
 
   loginHandler() {
-    console.log("LOGIN HANDLER");
-    console.log(this.state);
-
     var email = null;
     var username = null;
 
@@ -73,7 +66,7 @@ class Login extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
 
-          <FormGroup controlId="username" bsSize="large">
+          <FormGroup controlId="username" bssize="large">
             <FormControl
               autoFocus
               type="username"
@@ -83,7 +76,7 @@ class Login extends Component {
             />
           </FormGroup>
 
-          <FormGroup controlId="password" bsSize="large">
+          <FormGroup controlId="password" bssize="large">
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
@@ -94,7 +87,7 @@ class Login extends Component {
 
           <Button
             block
-            bsSize="large"
+            bssize="large"
             disabled={!this.validateForm()}
             type="submit"
             onClick={this.loginHandler}
@@ -107,7 +100,7 @@ class Login extends Component {
           </div>
         </form>
       </div>
-      </div>
+    </div>
     );
   }
 

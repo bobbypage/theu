@@ -38,11 +38,15 @@ class NetworkHelper {
 
   // Returns JWT token
   static loginUser(email, username, password) {
-    return axios.post(NetworkHelper.baseUrl + "/user/login", {
-      'email': email,
-      'username': username,
-      'password': password
-    });
+    let request = {
+        'password': password
+    }
+    if (email.includes("@")) {
+        request["email"] = email;
+    } else {
+        request["username"] = username;
+    }
+    return axios.post(NetworkHelper.baseUrl + "/user/login", request);
   }
 
   static saveToken(token) {
