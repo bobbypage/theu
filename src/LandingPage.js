@@ -15,8 +15,7 @@ class LandingPage extends Component {
     return (
       <Container fluid={true}>
         <div className="LandingPage">
-          <Jumbotron>
-            <h1>The U</h1>
+            <h1 className="title">The U</h1>
 
             <Row className="align-items-center">
               <Col md={{ span:6, offset:0 }}>
@@ -28,7 +27,6 @@ class LandingPage extends Component {
                 <Login/>
               </Col>
             </Row>
-          </Jumbotron>
         </div>
       </Container>
     );

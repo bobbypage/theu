@@ -11,6 +11,7 @@ import Forum from './Forum';
 import Post from './Post';
 import NewPost from './NewPost';
 import Login from "./Login";
+import SignUp from "./SignUp";
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -23,16 +24,17 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div id="container">
-                        <Switch>
-                            <Route exact path="/" component={HomePage} />
-                            <Route path='/AboutUs' component={AboutUs} />
-                            <Route path='/FAQ' component={FrequentlyAskedQuestions} />
-                            <Route path='/CodeOfConduct' component={CodeOfConduct} />
-                            <Route path='/ContactUs' component={ContactUs} />
-                            <Route path='/Forum' component={Forum} />
-                            <Route path='/Post' component={Post} />
-                            <Route path='/NewPost' component={NewPost} />
-                        </Switch>
+                    <Switch>
+                        <Route exact path="/" component={HomePage} />
+                        <Route path='/AboutUs' component={AboutUs} />
+                        <Route path='/FAQ' component={FrequentlyAskedQuestions} />
+                        <Route path='/CodeOfConduct' component={CodeOfConduct} />
+                        <Route path='/ContactUs' component={ContactUs} />
+                        <Route path='/Forum' component={Forum} />
+                        <Route path='/Post' component={Post} />
+                        <Route path='/NewPost' component={NewPost} />
+                        <Route path='/SignUp' component={SignUp} />
+                    </Switch>
                     <NavFooter/>
                 </div>
             </BrowserRouter>

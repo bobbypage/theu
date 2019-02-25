@@ -1,16 +1,16 @@
 html {
     position: relative;
     min-height: 100%;
+    background-color: #f8f9fa;
 }
 #body {
     margin: 0 0 100px;
     /* bottom = footer height */
     padding: 25px;
-    background-color: "#6c757d";
+    background-color: #f8f9fa;
     height:100%;
 }
 #footer {
-    background-color: orange;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -22,4 +22,5 @@ html {
 #container {
     min-height: 100%;
     height: 100%;
+    background-color: #f8f9fa;
 }

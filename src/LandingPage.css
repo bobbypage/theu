@@ -1,6 +1,9 @@
 .LandingPage {
   text-align: center;
-  background-color: "#6c757d";
   height: 100%;
   width:100%;
+}
+
+.title {
+  padding: 5%;
 }

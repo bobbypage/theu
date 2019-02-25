@@ -1,5 +1,4 @@
 #footer {
-    background-color: grey;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -20,6 +19,11 @@
 
 .link-text:hover {
   color: yellow;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 790px) {

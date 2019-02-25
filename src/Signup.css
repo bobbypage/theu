@@ -1,17 +1,26 @@
 @media all and (min-width: 480px) {
-  .Signup {
+  .signUp {
     padding: 60px 0;
     padding-left: 150px;
     padding-right: 150px;
-    background-color: #e83e8c;
+    background-color: #f8f9fa;
   }
 
-  .Signup form {
+  .signUp form {
     margin: 0 auto;
     max-width: 500px;
   }
 
-  .Signup button {
+  .signUp button {
       color: #e83e8c;
+  }
+
+  .hidden {
+    display:none;
+  }
+
+  .title {
+    text-align: center;
+    padding-bottom: 5%;
   }
 }
