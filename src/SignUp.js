@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, FormLabel, FormGroup, FormControl } from "react-bootstrap";
 import NetworkHelper from './NetworkHelper.js';
 import "./SignUp.css";
+import { Redirect } from 'react-router-dom'
 
 class SignUp extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class SignUp extends Component {
         visible: false,
         message: ""
       },
+      shouldRedirect: false,
     };
     this.signUpHandler = this.signUpHandler.bind(this)
   }
@@ -142,16 +144,24 @@ class SignUp extends Component {
   }
 
   signUpHandler() {
-    console.log("SIGNUP HANDLER");
-
-    if (this.state.username)
-
-    NetworkHelper.createUser(this.state.username, this.state.email, this.state.password).then(res => {
-      console.log(res);
+    NetworkHelper.createUser(this.state.email, this.state.username, this.state.password).then(res => {
+      NetworkHelper.loginUser(this.state.email, this.state.username, this.state.password).then(tokenres => {
+        let token = tokenres.data.access_token;
+        NetworkHelper.saveToken(token);
+        this.setState({shouldRedirect: true});
+      });
     });
   }
 
   render() {
+    const {shouldRedirect} = this.state;
+
+    if (shouldRedirect) {
+      return <Redirect push to={{ 
+        pathname: "/forum", 
+      }} />;
+    }
+
     return (
 
     <div className="signUp">

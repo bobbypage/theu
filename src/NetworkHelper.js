@@ -17,7 +17,7 @@ class NetworkHelper {
     });
   }
 
-  static createUser(username, email, password) {
+  static createUser(email, username, password) {
     return axios.post(NetworkHelper.baseUrl + "/user", {
       'username': username,
       'email': email,
@@ -26,12 +26,21 @@ class NetworkHelper {
   }
 
   // Returns JWT token
-  static loginUser(email, password) {
+  static loginUser(email, username, password) {
     console.log("Network Helper -", email, password);
     return axios.post(NetworkHelper.baseUrl + "/user/login", {
       'email': email,
+      'username': username,
       'password': password
     });
+  }
+
+  static saveToken(token) {
+    localStorage.setItem('jwt', token);
+  }
+
+  static getToken(token) {
+    return localStorage.getItem('jwt');
   }
 }
 
