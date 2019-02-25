@@ -54,7 +54,7 @@ class SignUp extends Component {
   }
 
   validatePassword() {
-    return this.state.password.length > 0 && this.state.confirmPassword === this.state.password;
+    return this.state.password.length >= 8 && this.state.confirmPassword === this.state.password;
   }
 
   handleChange = event => {

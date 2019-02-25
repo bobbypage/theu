@@ -26,6 +26,11 @@
   width: 100%;
 }
 
+.homePageButton {
+  height: 4%;
+  width: 4%;
+}
+
 @media only screen and (max-width: 790px) {
     [class*="item"] {
         width: 100%

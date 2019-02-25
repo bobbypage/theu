@@ -10,7 +10,7 @@ class NavFooter extends Component {
   render() {
     return (
       <Navbar bg="light" expand="lg" className="fixed-bottom">
-        <Navbar.Brand href="/"><img className="logo" src="./logo-full.png" /></Navbar.Brand>
+        <Navbar.Brand className="homePageButton" href="/"><img className="logo" src="logo-full.png" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

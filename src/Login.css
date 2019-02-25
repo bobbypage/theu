@@ -1,8 +1,8 @@
 @media all and (min-width: 480px) {
   .Login {
     padding: 60px 0;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 10%;
+    padding-right: 10%;
     background-color: #ffffff;
   }
 
@@ -12,6 +12,7 @@
   }
 
   .Login button {
-      color: #e83e8c;
+      background-color: #e83e8c;
+      border-color: #e83e8c;
   }
 }
