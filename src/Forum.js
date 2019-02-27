@@ -13,7 +13,7 @@ import { Redirect } from 'react-router-dom'
 
 
 const forumStyle = {
-  backgroundColor: "#adb5bd"
+  //  backgroundColor: "#adb5bd"
 };
 
 class Forum extends React.Component {
@@ -93,7 +93,7 @@ class Forum extends React.Component {
         <Container>
           {posts.map(post =>
             <Row onClick={(e) => this.renderRedirect(post, e) }>
-              <ForumCard title={post.title} text={post.post} />
+              <ForumCard post={post} />
             </Row>
           )}
         </Container>

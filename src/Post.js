@@ -69,13 +69,16 @@ class Post extends React.Component {
         loading: false,
         post_title: res.data.post_title,
         post_text: res.data.post_text,
+        like_count: res.data.like_count,
+        view_count: res.data.view_count,
+        comment_count: res.data.comment_count,
         username: res.data.username,
       });
     });
   }
 
   render() {
-    const {loading, post_title, post_text, username} = this.state;
+    const {loading, post_title, post_text, username, like_count, view_count, comment_count} = this.state;
 
     if (loading) {
       return (
@@ -109,17 +112,17 @@ class Post extends React.Component {
                       <Row>
                         <Col>
                           <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
-                          21 likes
+                          {like_count}
                         </Col>
 
                         <Col>
                           <FontAwesomeIcon style={iconStyle} icon={faComment} />
-                          10 comments
+                          {comment_count}
                         </Col>
 
                         <Col>
                           <FontAwesomeIcon style={iconStyle} icon={faEye} />
-                          1012 Views
+                          {view_count}
                         </Col>
 
                       </Row>
