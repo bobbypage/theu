@@ -36,6 +36,15 @@ class NetworkHelper {
     });
   }
 
+  static loginUser(email, type, message) {
+    let request = {
+        'email': email,
+        'type': type,
+        'message': message
+    }
+    return axios.post(NetworkHelper.baseUrl + "/contactUs", request);
+  }
+
   // Returns JWT token
   static loginUser(email, username, password) {
     let request = {

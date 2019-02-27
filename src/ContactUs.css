@@ -2,3 +2,13 @@
     padding: 2%;
     text-align: center;
 }
+
+#content {
+    width: 50%;
+    margin: auto;
+}
+
+.ContactUs button {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+}
