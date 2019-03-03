@@ -32,7 +32,7 @@ class NewPost extends React.Component {
     return (
       <Modal show={this.props.show} onHide={this.props.closeHandler}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create a new post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 

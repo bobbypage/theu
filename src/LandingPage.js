@@ -20,9 +20,11 @@ class LandingPage extends Component {
           </Col>
         </Row>
         <Row className="align-items-center">
-          <Col md={{ span:6, offset:0 }}>
+          <Col md={{ span:5, offset:0 }}>
             <h4>
-              The U is the best website to get answers to your anonymous questions. Sign in or sign up today and join your college community.
+              The U is the best way to get answers to your anonymous questions from other college students and alumni.
+              <br></br><br></br>
+              <b>Sign up today and join your college community!</b>
             </h4>
           </Col>
           <Col md={{ span:6, offset:0 }}>
