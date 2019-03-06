@@ -24,18 +24,22 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div id="container">
-                    <Switch>
-                        <Route exact path="/" component={HomePage} />
-                        <Route path='/AboutUs' component={AboutUs} />
-                        <Route path='/FAQ' component={FrequentlyAskedQuestions} />
-                        <Route path='/CodeOfConduct' component={CodeOfConduct} />
-                        <Route path='/ContactUs' component={ContactUs} />
-                        <Route path='/Forum' component={Forum} />
-                        <Route path='/Post' component={Post} />
-                        <Route path='/NewPost' component={NewPost} />
-                        <Route path='/SignUp' component={SignUp} />
-                    </Switch>
-                    <NavFooter/>
+                    <div className="page">
+                        <Switch>
+                            <Route exact path="/" component={HomePage} />
+                            <Route path='/AboutUs' component={AboutUs} />
+                            <Route path='/FAQ' component={FrequentlyAskedQuestions} />
+                            <Route path='/CodeOfConduct' component={CodeOfConduct} />
+                            <Route path='/ContactUs' component={ContactUs} />
+                            <Route path='/Forum' component={Forum} />
+                            <Route path='/Post' component={Post} />
+                            <Route path='/NewPost' component={NewPost} />
+                            <Route path='/SignUp' component={SignUp} />
+                        </Switch>
+                    </div>
+                    <div>
+                        <NavFooter/>
+                    </div>
                 </div>
             </BrowserRouter>
         );

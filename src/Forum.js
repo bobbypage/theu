@@ -7,14 +7,11 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import ScrollUpButton from "react-scroll-up-button";
 
+import './Forum.css';
 
-
-
-const forumStyle = {
-  //  backgroundColor: "#adb5bd"
-};
 
 class Forum extends React.Component {
   constructor(props) {
@@ -82,21 +79,28 @@ class Forum extends React.Component {
     }
 
     return (
-      <div style={forumStyle}>
+      <div>
 
-        <Button variant="primary" onClick={this.handleShow}>
-          Create post
-        </Button>
+        <div className="header">
+            <Button variant="primary" onClick={this.handleShow} className="pull-right">
+              Create post
+            </Button>
+        </div>
 
         <NewPost show={this.state.show} closeHandler={this.closeHandler} savedHandler={this.savedHandler}/>
 
-        <Container>
-          {posts.map(post =>
-            <Row onClick={(e) => this.renderRedirect(post, e) }>
-              <ForumCard post={post} />
-            </Row>
-          )}
-        </Container>
+        <div className="posts">
+            <Container>
+              {posts.map(post =>
+                <Row onClick={(e) => this.renderRedirect(post, e) }>
+                  <ForumCard post={post} />
+                </Row>
+              )}
+            </Container>
+
+        <ScrollUpButton ShowAtPosition={0} EasingType='easeOutCubic' />
+        </div>
+
       </div>
     );
   }
