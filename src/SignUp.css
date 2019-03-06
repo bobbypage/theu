@@ -12,7 +12,8 @@
   }
 
   .signUp button {
-      color: #e83e8c;
+      background-color: #e83e8c;
+      border-color: #e83e8c;
   }
 
   .hidden {

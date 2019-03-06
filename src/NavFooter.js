@@ -10,15 +10,14 @@ class NavFooter extends Component {
   render() {
     return (
       <Navbar bg="light" expand="lg" className="fixed-bottom">
-        <Navbar.Brand className="homePageButton" href="/"><img className="logo" src="logo-full.png" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            <Navbar.Brand className="homePageButton" href="/"><img className="logo" src="big_logo.png" /></Navbar.Brand>
             <Nav.Link href="/AboutUs">About Us</Nav.Link>
             <Nav.Link href="/FAQ">FAQ</Nav.Link>
             <Nav.Link href="/CodeOfConduct">Code Of Conduct</Nav.Link>
             <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
-
           </Nav>
         </Navbar.Collapse>
       </Navbar>
