@@ -9,9 +9,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Redirect } from 'react-router-dom'
 
-
-
-
 const forumStyle = {
   //  backgroundColor: "#adb5bd"
 };
@@ -35,6 +32,7 @@ class Forum extends React.Component {
       show: false
     })
   }
+
   savedHandler() {
     this.setState({
       show: false

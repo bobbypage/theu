@@ -28,6 +28,20 @@ class NetworkHelper {
     );
   }
 
+  static createComment(text) {
+    let requestHeaders = {
+        'Authorization': 'Bearer ' + NetworkHelper.getToken()
+    };
+
+    return axios.post(NetworkHelper.baseUrl + "/comment", {
+      'text': text,
+    }, 
+      {
+        headers: requestHeaders
+      }
+    );
+  }
+
   static createUser(email, username, password) {
     return axios.post(NetworkHelper.baseUrl + "/user", {
       'username': username,
