@@ -13,6 +13,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "react-bootstrap";
 
 
 const postStyle = {
@@ -51,6 +52,7 @@ const iconContainerStyles = {
 class Post extends React.Component {
   constructor(props) {
     super(props);
+    this.handleShow = this.handleShow.bind(this);
 
     this.state = {
       loading: true,
@@ -58,6 +60,12 @@ class Post extends React.Component {
       post_text: null,
       username: null,
     };
+  }
+
+  handleShow() {
+    NetworkHelper.putLike(this.props.location.state.post_id).then(res => {
+      this.setState({like_count : res.data.like_count})
+    });
   }
 
   componentDidMount() {
@@ -111,8 +119,10 @@ class Post extends React.Component {
                     <Container>
                       <Row>
                         <Col>
-                          <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
-                          {like_count}
+                          <Button type="submit" onClick={this.handleShow}>
+                            <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
+                            {like_count}
+                          </Button>
                         </Col>
 
                         <Col>

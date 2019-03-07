@@ -13,6 +13,19 @@ class NetworkHelper {
     return axios.get(NetworkHelper.baseUrl + "/post/" + post_id);
   }
 
+  static putLike(post_id) {
+      let requestHeaders = {
+        'Authorization': 'Bearer ' + NetworkHelper.getToken()
+    };
+
+    return axios.post(NetworkHelper.baseUrl + "/like/" + post_id, {
+    'post_id' : post_id
+    }, {
+        headers: requestHeaders
+      }
+      );
+  }
+
   static createPost(title, text) {
     let requestHeaders = {
         'Authorization': 'Bearer ' + NetworkHelper.getToken()
