@@ -13,7 +13,7 @@ class NavFooter extends Component {
   };
 
   componentDidMount() {
-    this._asyncRequest = setInterval(() => NetworkHelper.tokenValid().then(isValid => this.setState({loggedIn: isValid})), 100);
+    this._asyncRequest = setInterval(() => NetworkHelper.tokenValid().then(isValid => this.setState({loggedIn: isValid})), 3000);
   }
 
   componentWillUnmount() {
