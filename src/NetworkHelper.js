@@ -1,22 +1,26 @@
 import axios from 'axios';
 
 class NetworkHelper {
-  var baseUrl = "";
+  static baseUrl = "";
+
   constructor() {
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-      baseUrl = "http://127.0.0.1:5000/api"
+  }
+
+  static getBaseUrl() {
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return "http://127.0.0.1:5000/api";
     }
     else {
-      baseUrl = "https://theu-backend.herokuapp.com/api"
+      return "https://theu-backend.herokuapp.com/api";
     }
   }
 
   static getPosts() {
-    return axios.get(NetworkHelper.baseUrl + "/post");
+    return axios.get(NetworkHelper.getBaseUrl() + "/post");
   }
 
   static getPost(post_id) {
-    return axios.get(NetworkHelper.baseUrl + "/post/" + post_id);
+    return axios.get(NetworkHelper.getBaseUrl() + "/post/" + post_id);
   }
 
   static putLike(post_id) {
@@ -24,7 +28,7 @@ class NetworkHelper {
         'Authorization': 'Bearer ' + NetworkHelper.getToken()
     };
 
-    return axios.post(NetworkHelper.baseUrl + "/like/" + post_id, {
+    return axios.post(NetworkHelper.getBaseUrl() + "/like/" + post_id, {
     'post_id' : post_id
     }, {
         headers: requestHeaders
@@ -37,7 +41,7 @@ class NetworkHelper {
         'Authorization': 'Bearer ' + NetworkHelper.getToken()
     };
 
-    return axios.post(NetworkHelper.baseUrl + "/post", {
+    return axios.post(NetworkHelper.getBaseUrl() + "/post", {
       'title': title,
       'text': text,
     }, 
@@ -48,7 +52,7 @@ class NetworkHelper {
   }
 
   static createUser(email, username, password) {
-    return axios.post(NetworkHelper.baseUrl + "/user", {
+    return axios.post(NetworkHelper.getBaseUrl() + "/user", {
       'username': username,
       'email': email,
       'password_hash': password,
@@ -61,7 +65,7 @@ class NetworkHelper {
         'type': type,
         'message': message
     }
-    return axios.post(NetworkHelper.baseUrl + "/contactUs", request);
+    return axios.post(NetworkHelper.getBaseUrl() + "/contactUs", request);
   }
 
   // Returns JWT token
@@ -74,7 +78,7 @@ class NetworkHelper {
     } else {
         request["username"] = username;
     }
-    return axios.post(NetworkHelper.baseUrl + "/user/login", request);
+    return axios.post(NetworkHelper.getBaseUrl() + "/user/login", request);
   }
 
   static saveToken(token) {
