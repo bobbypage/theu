@@ -12,6 +12,7 @@ class Login extends Component {
       username: "",
       password: "",
       shouldRedirect: false,
+      redirectToVerification: false
     };
     this.loginHandler = this.loginHandler.bind(this)
   }
@@ -47,16 +48,27 @@ class Login extends Component {
       NetworkHelper.saveToken(token);
       this.setState({shouldRedirect: true});
     }).catch(err => {
-      alert("Could not login");
+      if (err.response.status == 409) {
+        this.setState({redirectToVerification: true});
+      } else {
+        alert("wrong credential");
+      }
     });
   }
 
   render() {
     const {shouldRedirect} = this.state;
+    const {redirectToVerification} = this.state;
 
     if (shouldRedirect) {
       return <Redirect push to={{ 
         pathname: "/forum", 
+      }} />;
+    } 
+
+    if (redirectToVerification) {
+      return <Redirect push to={{
+        pathname: "/notverified"
       }} />;
     }
 
