@@ -4,12 +4,18 @@ import LandingPage from './LandingPage';
 import Forum from './Forum';
 import './HomePage.css';
 import NetworkHelper from './NetworkHelper';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-135887615-1');
 
 
 class HomePage extends Component {
-    state = {
+  constructor(props) {
+    super(props);
+    this.state = {
         defaultPage: null,
     };
+  }
+
 
     componentDidMount() {
         this._asyncRequest = NetworkHelper.tokenValid().then(
@@ -18,6 +24,7 @@ class HomePage extends Component {
                 this.setState({defaultPage: isValid ? <Forum/> : <LandingPage/>});
             }
         )
+        ReactGA.pageview('/homepage');
     }
 
     componentWillUnmount() {
