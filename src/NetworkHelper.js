@@ -1,8 +1,14 @@
 import axios from 'axios';
 
 class NetworkHelper {
-  static baseUrl = "http://127.0.0.1:5000/api";
+  var baseUrl = "";
   constructor() {
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+      baseUrl = "http://127.0.0.1:5000/api"
+    }
+    else {
+      baseUrl = "https://theu-backend.herokuapp.com/api"
+    }
   }
 
   static getPosts() {
