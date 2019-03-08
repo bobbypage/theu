@@ -12,3 +12,10 @@
     background-color: #e83e8c;
     border-color: #e83e8c;
 }
+
+@media all and (max-width: 480px) {
+    #content {
+        width: 80%;
+        margin: auto;
+    }
+}

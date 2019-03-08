@@ -25,3 +25,15 @@
     padding-bottom: 5%;
   }
 }
+
+.signUpForm {
+    padding: 20px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #f8f9fa;
+}
+
+.title {
+    text-align: center;
+    padding-top: 10px;
+}
