@@ -65,12 +65,7 @@ class Post extends React.Component {
 
     this.closeHandler = this.closeHandler.bind(this)
     this.savedHandler = this.savedHandler.bind(this)
-  }
-
-  handleShow() {
-    NetworkHelper.putLike(this.props.location.state.post_id).then(res => {
-      this.setState({like_count : res.data.like_count})
-    });
+    this.handleLike = this.handleLike.bind(this)
   }
 
   componentDidMount() {
@@ -93,6 +88,12 @@ class Post extends React.Component {
 
   handleShow() {
     this.setState({show: true});
+  }
+
+  handleLike() {
+    NetworkHelper.putLike(this.props.location.state.post_id).then(res => {
+      this.setState({like_count : res.data.like_count})
+    });
   }
 
   closeHandler() {
@@ -153,7 +154,7 @@ class Post extends React.Component {
                     <Container>
                       <Row>
                         <Col>
-                          <Button type="submit" onClick={this.handleShow}>
+                          <Button type="submit" onClick={this.handleLike}>
                             <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
                             {like_count}
                           </Button>
