@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 class NetworkHelper {
-  static baseUrl = "";
 
   constructor() {
   }
@@ -9,8 +8,7 @@ class NetworkHelper {
   static getBaseUrl() {
     if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
       return "http://127.0.0.1:5000/api";
-    }
-    else {
+    } else {
       return "https://theu-backend.herokuapp.com/api";
     }
   }
@@ -24,7 +22,7 @@ class NetworkHelper {
   }
 
   static putLike(post_id) {
-      let requestHeaders = {
+    let requestHeaders = {
         'Authorization': 'Bearer ' + NetworkHelper.getToken()
     };
 
@@ -38,13 +36,13 @@ class NetworkHelper {
 
   static createPost(title, text) {
     let requestHeaders = {
-        'Authorization': 'Bearer ' + NetworkHelper.getToken()
+      'Authorization': 'Bearer ' + NetworkHelper.getToken()
     };
 
     return axios.post(NetworkHelper.getBaseUrl() + "/post", {
       'title': title,
       'text': text,
-    }, 
+    },
       {
         headers: requestHeaders
       }
@@ -59,7 +57,7 @@ class NetworkHelper {
     return axios.post(NetworkHelper.getBaseUrl() + "/comment", {
       'post_id': post_id,
       'text': text,
-    }, 
+    },
       {
         headers: requestHeaders
       }
@@ -104,8 +102,15 @@ class NetworkHelper {
     return localStorage.getItem('jwt');
   }
 
-  static tokenValid() {
-      return localStorage.getItem('jwt') != null;
+  static async tokenValid() {
+    let requestHeaders = {
+      'Authorization': 'Bearer ' + NetworkHelper.getToken()
+    };
+
+    return await axios.get(NetworkHelper.getBaseUrl() + "/protected",
+    {
+      headers: requestHeaders
+    }).then(r => r.status === 200);
   }
 }
 

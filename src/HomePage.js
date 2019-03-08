@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import LandingPage from './LandingPage';
 import Forum from './Forum';
 import './HomePage.css';
+import NetworkHelper from './NetworkHelper';
 
 
 class HomePage extends Component {
     render() {
-        const isLoggedIn = false;
         let defaultPage;
 
-        if (isLoggedIn) {
+        if (NetworkHelper.tokenValid()) {
             defaultPage = <Forum />;
         } else {
             defaultPage = <LandingPage />;
