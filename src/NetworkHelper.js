@@ -105,7 +105,7 @@ class NetworkHelper {
   }
 
   static tokenValid() {
-      localStorage.getItem('jwt') == null;
+      return localStorage.getItem('jwt') == null;
   }
 }
 
