@@ -145,11 +145,7 @@ class SignUp extends Component {
 
   signUpHandler() {
     NetworkHelper.createUser(this.state.email, this.state.username, this.state.password).then(res => {
-      NetworkHelper.loginUser(this.state.email, this.state.username, this.state.password).then(tokenres => {
-        let token = tokenres.data.access_token;
-        NetworkHelper.saveToken(token);
-        this.setState({shouldRedirect: true});
-      });
+      this.setState({shouldRedirect: true});
     });
   }
 
