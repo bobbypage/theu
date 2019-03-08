@@ -7,18 +7,28 @@ import NetworkHelper from './NetworkHelper';
 
 
 class HomePage extends Component {
+    state = {
+        defaultPage: null,
+    };
+
+    componentDidMount() {
+        this._asyncRequest = NetworkHelper.tokenValid().then(
+            isValid => {
+                this._asyncRequest = null;
+                this.setState({defaultPage: isValid ? <Forum/> : <LandingPage/>});
+            }
+        )
+    }
+
+    componentWillUnmount() {
+        if (this._asyncRequest)
+        this._asyncRequest.cancel();
+    }
+
     render() {
-        let defaultPage;
-
-        if (NetworkHelper.tokenValid()) {
-            defaultPage = <Forum />;
-        } else {
-            defaultPage = <LandingPage />;
-        }
-
         return (
             <div>
-                {defaultPage}
+                {this.state.defaultPage}
             </div>
         );
     }

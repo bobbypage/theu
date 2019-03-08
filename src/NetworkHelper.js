@@ -102,6 +102,10 @@ class NetworkHelper {
     return localStorage.getItem('jwt');
   }
 
+  static clearToken() {
+    localStorage.removeItem('jwt');
+  }
+
   static async tokenValid() {
     let requestHeaders = {
       'Authorization': 'Bearer ' + NetworkHelper.getToken()
@@ -110,7 +114,7 @@ class NetworkHelper {
     return await axios.get(NetworkHelper.getBaseUrl() + "/protected",
     {
       headers: requestHeaders
-    }).then(r => r.status === 200);
+    }).then(r => true).catch(e => false);
   }
 }
 

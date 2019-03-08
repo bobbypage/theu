@@ -55,9 +55,9 @@ class Forum extends React.Component {
     this.refreshPosts();
   }
 
-  handleShow() {
+  async handleShow() {
     // check if the user is logged in
-    if (NetworkHelper.tokenValid()) {
+    if (await NetworkHelper.tokenValid()) {
       this.setState({ show: true });
     }
     else {
