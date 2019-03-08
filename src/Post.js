@@ -15,6 +15,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewComment from './NewComment.js';
 
+import CommentCard from './CommentCard.js';
+
 const postStyle = {
   paddingTop: "30px",
 };
@@ -57,6 +59,7 @@ class Post extends React.Component {
       post_text: null,
       username: null,
       show: false,
+      all_comments: null,
     };
 
     this.closeHandler = this.closeHandler.bind(this)
@@ -76,6 +79,7 @@ class Post extends React.Component {
         view_count: res.data.view_count,
         comment_count: res.data.comment_count,
         username: res.data.username,
+        all_comments: res.data.all_comments,
       });
     });
   }
@@ -103,6 +107,7 @@ class Post extends React.Component {
         view_count: res.data.view_count,
         comment_count: res.data.comment_count,
         username: res.data.username,
+        all_comments: res.data.all_comments,
       });
     });
   }
@@ -164,9 +169,17 @@ class Post extends React.Component {
               </Card>
             </Col>
           </Row>
-
-          <NewComment show={this.state.show} closeHandler={this.closeHandler} savedHandler={this.savedHandler}/>
         </Container>
+
+        <Container>
+          {this.state.all_comments.map(comment =>
+            <Row>
+              <CommentCard comment={comment} />
+            </Row>
+          )}
+        </Container>
+
+        <NewComment show={this.state.show} closeHandler={this.closeHandler} savedHandler={this.savedHandler} post_id={this.props.location.state.post_id}/>
       </div>
     );
   }

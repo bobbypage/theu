@@ -17,8 +17,7 @@ class NewComment extends React.Component {
   }
 
   saveHandler() {
-    console.log(this.state.post_id);
-    NetworkHelper.createComment(this.state.text, this.state)
+    NetworkHelper.createComment(this.props.post_id, this.state.text, this.state)
                  .then(res => {this.props.savedHandler();
                               });
   }
