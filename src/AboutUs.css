@@ -1,8 +1,7 @@
-#header {
-    padding: 2%;
+.header {
     text-align: center;
 }
 
-#content {
-    padding-left: 2%;
+.content {
+    text-align: left;
 }

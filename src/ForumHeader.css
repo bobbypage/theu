@@ -1,0 +1,29 @@
+#footer {
+    background-color: grey;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    overflow:hidden;
+}
+
+.item {
+    float:left;
+    width:20%;
+}
+
+.link-text {
+    color:black;
+    text-align:center;
+}
+
+.link-text:hover {
+  color: yellow;
+}
+
+@media only screen and (max-width: 790px) {
+    [class*="item"] {
+        width: 100%
+    }
+}

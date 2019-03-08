@@ -12,6 +12,7 @@ import Post from './Post';
 import NewPost from './NewPost';
 import Login from "./Login";
 import SignUp from "./SignUp";
+import NotVerified from "./NotVerified";
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -35,6 +36,7 @@ class App extends Component {
                             <Route path='/Post' component={Post} />
                             <Route path='/NewPost' component={NewPost} />
                             <Route path='/SignUp' component={SignUp} />
+                            <Route path='/NotVerified' component={NotVerified} />
                         </Switch>
                     </div>
                     <div>
