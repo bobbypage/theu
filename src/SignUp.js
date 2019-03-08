@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom'
 class SignUp extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       email: "",
       emailError: {
@@ -30,6 +30,7 @@ class SignUp extends Component {
         message: ""
       },
       shouldRedirect: false,
+      username: Math.random().toString(36).substring(7),
     };
     this.signUpHandler = this.signUpHandler.bind(this)
   }
@@ -180,14 +181,15 @@ class SignUp extends Component {
             {this.state.emailError.message}
           </div>
           </FormGroup>
-
+      
+          Anonymous Username:
           <FormGroup controlId="username" bsSize="large">
             <FormControl
               type="username"
               value={this.state.username}
               onChange={this.handleChange}
               onBlur={this.handleUsername}
-              placeholder="Username"
+              placeholder="Anonymous Username"
             />
 
           <div className={this.state.usernameError.visible ? "hidden" : ""}>
