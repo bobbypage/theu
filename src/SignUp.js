@@ -35,9 +35,6 @@ class SignUp extends Component {
   }
 
   validateForm() {
-    console.log(this.state.emailError);
-    console.log("VALIDATE FORM CLICKED");
-
     let validUsername = this.validateUsername();
     let validEmail= this.validateEmail();
     let validPassword = this.validatePassword();
