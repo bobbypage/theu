@@ -56,7 +56,13 @@ class Forum extends React.Component {
   }
 
   handleShow() {
-    this.setState({ show: true });
+    // check if the user is logged in
+    if (NetworkHelper.tokenValid()) {
+      this.setState({ show: true });
+    }
+    else {
+      alert("Please login / verify your account");
+    }
   }
   handleClose() {
     this.setState({ show: false });

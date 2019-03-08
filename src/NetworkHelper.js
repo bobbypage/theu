@@ -103,6 +103,10 @@ class NetworkHelper {
   static getToken() {
     return localStorage.getItem('jwt');
   }
+
+  static tokenValid() {
+      localStorage.getItem('jwt') == null;
+  }
 }
 
 export default NetworkHelper;
