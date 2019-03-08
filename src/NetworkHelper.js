@@ -51,6 +51,21 @@ class NetworkHelper {
     );
   }
 
+  static createComment(post_id, text) {
+    let requestHeaders = {
+        'Authorization': 'Bearer ' + NetworkHelper.getToken()
+    };
+
+    return axios.post(NetworkHelper.baseUrl + "/comment", {
+      'post_id': post_id,
+      'text': text,
+    }, 
+      {
+        headers: requestHeaders
+      }
+    );
+  }
+
   static createUser(email, username, password) {
     return axios.post(NetworkHelper.getBaseUrl() + "/user", {
       'username': username,

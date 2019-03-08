@@ -12,7 +12,6 @@ import ScrollUpButton from "react-scroll-up-button";
 
 import './Forum.css';
 
-
 class Forum extends React.Component {
   constructor(props) {
     super(props);
@@ -32,6 +31,7 @@ class Forum extends React.Component {
       show: false
     })
   }
+
   savedHandler() {
     this.setState({
       show: false

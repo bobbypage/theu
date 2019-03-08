@@ -14,7 +14,9 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "react-bootstrap";
+import NewComment from './NewComment.js';
 
+import CommentCard from './CommentCard.js';
 
 const postStyle = {
   paddingTop: "30px",
@@ -48,18 +50,21 @@ const iconContainerStyles = {
   paddingTop: "10px",
 };
 
-
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.handleShow = this.handleShow.bind(this);
-
     this.state = {
       loading: true,
       post_title: null,
       post_text: null,
       username: null,
+      show: false,
+      all_comments: null,
     };
+
+    this.closeHandler = this.closeHandler.bind(this)
+    this.savedHandler = this.savedHandler.bind(this)
   }
 
   handleShow() {
@@ -81,6 +86,35 @@ class Post extends React.Component {
         view_count: res.data.view_count,
         comment_count: res.data.comment_count,
         username: res.data.username,
+        all_comments: res.data.all_comments,
+      });
+    });
+  }
+
+  handleShow() {
+    this.setState({show: true});
+  }
+
+  closeHandler() {
+    this.setState({show: false});
+  }
+
+  savedHandler() {
+    this.setState({show: false});
+    this.refreshPost();
+  }
+
+  refreshPost() {
+    NetworkHelper.getPost(this.props.location.state.post_id).then(res => {
+      this.setState({
+        loading: false,
+        post_title: res.data.post_title,
+        post_text: res.data.post_text,
+        like_count: res.data.like_count,
+        view_count: res.data.view_count,
+        comment_count: res.data.comment_count,
+        username: res.data.username,
+        all_comments: res.data.all_comments,
       });
     });
   }
@@ -134,7 +168,9 @@ class Post extends React.Component {
                           <FontAwesomeIcon style={iconStyle} icon={faEye} />
                           {view_count}
                         </Col>
-
+                        <Col>
+                              <button type="button" className="btn btn-primary" onClick={this.handleShow}>Comment</button>
+                        </Col>
                       </Row>
                     </Container>
                   </div>
@@ -143,6 +179,16 @@ class Post extends React.Component {
             </Col>
           </Row>
         </Container>
+
+        <Container>
+          {this.state.all_comments.map(comment =>
+            <Row>
+              <CommentCard comment={comment} />
+            </Row>
+          )}
+        </Container>
+
+        <NewComment show={this.state.show} closeHandler={this.closeHandler} savedHandler={this.savedHandler} post_id={this.props.location.state.post_id}/>
       </div>
     );
   }
