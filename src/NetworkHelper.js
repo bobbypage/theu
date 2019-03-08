@@ -56,7 +56,7 @@ class NetworkHelper {
         'Authorization': 'Bearer ' + NetworkHelper.getToken()
     };
 
-    return axios.post(NetworkHelper.baseUrl + "/comment", {
+    return axios.post(NetworkHelper.getBaseUrl() + "/comment", {
       'post_id': post_id,
       'text': text,
     }, 
