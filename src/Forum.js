@@ -86,7 +86,6 @@ class Forum extends React.Component {
 
     return (
       <div>
-
         <div className="header">
             <Button variant="primary" onClick={this.handleShow} className="pull-right">
               Create post
@@ -95,17 +94,36 @@ class Forum extends React.Component {
 
         <NewPost show={this.state.show} closeHandler={this.closeHandler} savedHandler={this.savedHandler}/>
 
-        <div className="posts">
-            <Container>
-              {posts.map(post =>
-                <Row onClick={(e) => this.renderRedirect(post, e) }>
-                  <ForumCard post={post} />
-                </Row>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              {posts.map((post, index) => 
+                (
+                  index % 2 === 0 &&
+                  <Row onClick={(e) => this.renderRedirect(post, e) }>
+                    <ForumCard post={post} />
+                  </Row>
+                )
               )}
-            </Container>
 
-        <ScrollUpButton ShowAtPosition={0} EasingType='easeOutCubic' />
+            </div>
+            <div class="col">
+              {posts.map((post, index) => 
+                  (
+                    index % 2 === 1 &&
+                    <Row onClick={(e) => this.renderRedirect(post, e) }>
+                      <ForumCard post={post} />
+                    </Row>
+                  )
+                )}
+
+            </div>
+          </div>
         </div>
+
+        {
+        <ScrollUpButton ShowAtPosition={0} EasingType='easeOutCubic' />
+        }
 
       </div>
     );
