@@ -108,7 +108,7 @@ class Login extends Component {
           </Button>
 
           <div>
-            <p>Not a member of The U yet? <a href="/SignUp">Sign up here</a></p>
+            <p className="signUpLink">Not a member of The U yet? <a href="/SignUp">Sign up here</a></p>
           </div>
         </form>
       </div>

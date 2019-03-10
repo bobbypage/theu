@@ -4,11 +4,13 @@
 }
 
 .question {
-    padding-left: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
     padding-top:2%;
 }
 
 
 .answer {
-    padding-left: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
 }

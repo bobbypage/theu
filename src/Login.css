@@ -1,8 +1,6 @@
 @media all and (min-width: 480px) {
   .Login {
-    padding: 60px 0;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 10%;
     background-color: #0D3070;
     color:#FFFFFF;
   }
@@ -10,11 +8,17 @@
   .Login form {
     margin: 0 auto;
     max-width: 500px;
+    padding: 10%;
   }
 
   .Login button {
       background-color: #e83e8c;
       border-color: #e83e8c;
+  }
+
+  .signUpLink {
+      padding-top: 10px;
+      margin-bottom: 0;
   }
 }
 

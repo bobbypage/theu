@@ -1,7 +1,11 @@
-.header {
+.aboutUsHeader {
     text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .content {
     text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
 }
