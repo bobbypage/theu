@@ -80,25 +80,6 @@ class SignUp extends Component {
     }
   }
 
-  handleUsername = event => {
-    let username = event.target.value;
-    if (username.length < 1) {
-        this.setState({
-            ["usernameError"]: {
-                visible: true,
-                message: "Must have a username"
-            }
-        });
-    } else {
-        this.setState({
-            ["usernameError"]: {
-                visible: false,
-                message: ""
-            }
-        });
-    }
-  }
-
   handlePassword = event => {
     let password = event.target.value;
     if (password.length < 8) {
@@ -143,11 +124,11 @@ class SignUp extends Component {
 
   signUpHandler() {
     NetworkHelper.createUser(this.state.email, this.state.username, this.state.password).then(res => {
-      NetworkHelper.loginUser(this.state.email, this.state.username, this.state.password).then(tokenres => {
-        let token = tokenres.data.access_token;
-        NetworkHelper.saveToken(token);
         this.setState({shouldRedirect: true});
-      });
+      //NetworkHelper.loginUser(this.state.email, this.state.username, this.state.password).then(tokenres => {
+        //let token = tokenres.data.access_token;
+        //NetworkHelper.saveToken(token);
+      //});
     });
   }
 
@@ -174,10 +155,11 @@ class SignUp extends Component {
               value={this.state.email}
               onChange={this.handleChange}
               onBlur={this.handleEmail}
+              onKeyUp={this.handleEmail}
               placeholder="email@uni.edu"
             />
 
-          <div className={this.state.emailError.visible ? "hidden" : ""}>
+          <div show={this.state.emailError.visible}>
             {this.state.emailError.message}
           </div>
           </FormGroup>
@@ -188,13 +170,9 @@ class SignUp extends Component {
               type="username"
               value={this.state.username}
               onChange={this.handleChange}
-              onBlur={this.handleUsername}
               placeholder="Anonymous Username"
             />
 
-          <div className={this.state.usernameError.visible ? "hidden" : ""}>
-            {this.state.usernameError.message}
-          </div>
           </FormGroup>
 
           <FormGroup controlId="password" bsSize="large">
@@ -202,11 +180,12 @@ class SignUp extends Component {
               value={this.state.password}
               onChange={this.handleChange}
               onBlur={this.handlePassword}
+              onKeyUp={this.handlePassword}
               type="password"
               placeholder="Password"
             />
 
-          <div className={this.state.passwordError.visible ? "hidden" : ""}>
+          <div show={this.state.passwordError.visible}>
             {this.state.passwordError.message}
           </div>
           </FormGroup>
@@ -216,11 +195,12 @@ class SignUp extends Component {
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               onBlur={this.handleConfirmPassword}
+              onKeyUp={this.handleConfirmPassword}
               type="password"
               placeholder="Confirm Password"
             />
 
-          <div className={this.state.confirmPasswordError.visible ? "hidden" : ""}>
+          <div show={this.state.confirmPasswordError.visible}>
             {this.state.confirmPasswordError.message}
           </div>
           </FormGroup>

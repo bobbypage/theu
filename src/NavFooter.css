@@ -7,10 +7,6 @@
     overflow:hidden;
 }
 
-#nav-bar-priority {
-    z-index: 0;
-}
-
 .item {
     float:left;
     width:20%;
@@ -39,4 +35,7 @@
     [class*="item"] {
         width: 100%
     }
+}
+#nav-bar-priority {
+    z-index: 0;
 }
