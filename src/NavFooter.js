@@ -27,7 +27,7 @@ class NavFooter extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Navbar.Brand className="homePageButton" href="/"><img className="logo" src="big_logo.png" /></Navbar.Brand>
+            <Navbar.Brand className="homePageButton" href="/"><img className="logo" src="logo_withoutbackground.png" /></Navbar.Brand>
             <Nav.Link href="/AboutUs">About Us</Nav.Link>
             <Nav.Link href="/FAQ">FAQ</Nav.Link>
             <Nav.Link href="/CodeOfConduct">Code Of Conduct</Nav.Link>
