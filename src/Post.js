@@ -86,8 +86,14 @@ class Post extends React.Component {
     });
   }
 
-  handleShow() {
-    this.setState({show: true});
+  async handleShow() {
+    // check if the user is logged in
+    if (await NetworkHelper.tokenValid()) {
+      this.setState({ show: true });
+    }
+    else {
+      alert("Please login / verify your account");
+    }
   }
 
   handleLike() {
