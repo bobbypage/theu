@@ -140,7 +140,7 @@ class Post extends React.Component {
         <h1> Loading ... </h1>
       );
     }
-    
+
     return (
       <div style={postStyle}>
         <Container>
@@ -196,7 +196,7 @@ class Post extends React.Component {
         <Container>
           {this.state.all_comments.map(comment =>
             <Row>
-              <CommentCard comment={comment} />
+              <CommentCard comment={comment} op={comment[0] === username} />
             </Row>
           )}
         </Container>

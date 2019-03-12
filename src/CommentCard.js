@@ -40,7 +40,7 @@ class CommentCard extends React.Component {
             </Card.Text>
             <NavDropdown.Divider />
             <Card.Text>
-              University of Washington | {this.props.comment[0]}
+              University of Washington | {this.props.comment[0]} {this.props.op ? "OP" : "" }
             </Card.Text>
           </Card.Body>
         </Card>
