@@ -50,6 +50,12 @@ const iconContainerStyles = {
   paddingTop: "10px",
 };
 
+const columnStyle = {
+  paddingLeft:"8px",
+  paddingRight:"8px",
+  textAlign:"center",
+};
+
 class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -153,23 +159,23 @@ class Post extends React.Component {
                   <div style={iconContainerStyles}>
                     <Container>
                       <Row>
-                        <Col>
+                        <Col style={columnStyle}>
                           <Button type="submit" onClick={this.handleLike}>
                             <FontAwesomeIcon style={iconStyle} icon={faThumbsUp} />
                             {like_count}
                           </Button>
                         </Col>
 
-                        <Col>
+                        <Col style={columnStyle}>
                           <FontAwesomeIcon style={iconStyle} icon={faComment} />
                           {comment_count}
                         </Col>
 
-                        <Col>
+                        <Col style={columnStyle}>
                           <FontAwesomeIcon style={iconStyle} icon={faEye} />
                           {view_count}
                         </Col>
-                        <Col>
+                        <Col style={columnStyle}>
                               <button type="button" className="btn btn-primary" onClick={this.handleShow}>Comment</button>
                         </Col>
                       </Row>
